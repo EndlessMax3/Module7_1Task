@@ -9,11 +9,15 @@ int main()
 {
     //динамически создаем объекты
     Point* pp1 = new Point(10, 20, "Green");
-    Point* pp2 = new Point(20, 30, "Yellow");
-    Line* lp1 = new Line(0, 0, 30, 40, "Red");
+    Point* pp2 = new Point;
+    Line* lp1 = new Line;
     Line* lp2 = new Line(5, 10, 15, 20, "Pink");
     Circle* cp1 = new Circle(30, 30, 30, "White");
     Circle* cp2 = new Circle(50, 50, 25, "Blue");
+    //задаем параметры
+    pp2->SetX(20);
+    pp2->SetY(30);
+    lp1->SetX1(10)->SetY1(20)->SetX2(30)->SetY2(40);
     //создаем указатели типа Shape на объекты
     Shape* s1 = pp1;
     Shape* s2 = pp2;

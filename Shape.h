@@ -8,6 +8,7 @@ using std::endl;
 
 //класс-родитель Shape
 class Shape{
+	//int z; //private
 
 private:
 	//метод копирования Shape

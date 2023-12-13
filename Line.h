@@ -25,10 +25,10 @@ public:
 	int GetX2() const { return x2; }
 	int GetY2() const { return y2; }
 
-	void SetX1(int _x) { x1 = _x; }
-	void SetY1(int _y) { y1 = _y; }
-	void SetX2(int _x) { x2 = _x; }
-	void SetY2(int _y) { y2 = _y; }
+	Line* SetX1(int _x) { x1 = _x; return this; }
+	Line* SetY1(int _y) { y1 = _y; return this; }
+	Line* SetX2(int _x) { x2 = _x; return this; }
+	Line* SetY2(int _y) { y2 = _y; return this; }
 
 	//отобразить линию в консоли
 	void draw() const override
@@ -38,19 +38,19 @@ public:
 	}
 
 	//сместить линию на dx1, dy1, dx2, dy2
-	void moveBy(int dx1 = 0, int dy1 = 0, int dx2 = 0, int dy2 = 0)
+	void moveBy(int dx = 0, int dy = 0)
 	{
-		x1 += dx1;
-		y1 += dy1;
-		x2 += dx2;
-		y2 += dy2;
+		x1 += dx;
+		y1 += dy;
+		x2 += dx;
+		y2 += dy;
 	}
 
 	//увеличить линию на factor
 	void scale(double factor)
 	{
-		x2 = x2 * factor;
-		y2 = y2 * factor;
+		x2 = (x2 - x1) * factor + x1;
+		y2 = (y2 - y1) * factor + y1;
 	}
 
 	//деструктор линии
